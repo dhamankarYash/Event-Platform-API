@@ -46,7 +46,7 @@ A complete **full-stack event discovery and registration platform** with secure 
 
 ## 📁 Project Structure
 
-\`\`\`
+```bash
 event-platform/
 ├── backend/                    # FastAPI Backend
 │   ├── main.py                # FastAPI routes
@@ -66,55 +66,56 @@ event-platform/
     │   └── favicon.ico
     ├── src/
     │   ├── components/        # Reusable UI components
-    │   │   ├── common/        # Generic components
+    │   │   ├── common/
     │   │   │   ├── Header.tsx
     │   │   │   ├── Footer.tsx
     │   │   │   ├── Loading.tsx
     │   │   │   └── Modal.tsx
-    │   │   ├── auth/          # Authentication components
+    │   │   ├── auth/
     │   │   │   ├── LoginForm.tsx
     │   │   │   ├── SignupForm.tsx
     │   │   │   └── ProtectedRoute.tsx
-    │   │   └── events/        # Event-related components
+    │   │   └── events/
     │   │       ├── EventCard.tsx
     │   │       ├── EventList.tsx
     │   │       ├── EventForm.tsx
     │   │       └── EventDetails.tsx
-    │   ├── pages/             # Page components
-    │   │   ├── Home.tsx       # Landing page
-    │   │   ├── Events.tsx     # Events listing
-    │   │   ├── EventDetail.tsx # Single event view
-    │   │   ├── Login.tsx      # Login page
-    │   │   ├── Signup.tsx     # Registration page
-    │   │   ├── Dashboard.tsx  # User dashboard
-    │   │   ├── Profile.tsx    # User profile
-    │   │   └── CreateEvent.tsx # Event creation
-    │   ├── services/          # API service layer
-    │   │   ├── api.ts         # Axios configuration
-    │   │   ├── authService.ts # Authentication APIs
-    │   │   ├── eventService.ts # Event APIs
-    │   │   └── userService.ts # User APIs
-    │   ├── contexts/          # React contexts
-    │   │   ├── AuthContext.tsx # Authentication state
-    │   │   └── EventContext.tsx # Event state
-    │   ├── types/             # TypeScript definitions
-    │   │   ├── auth.ts        # Auth-related types
-    │   │   ├── event.ts       # Event-related types
-    │   │   └── user.ts        # User-related types
-    │   ├── utils/             # Utility functions
-    │   │   ├── constants.ts   # App constants
-    │   │   ├── helpers.ts     # Helper functions
-    │   │   └── validation.ts  # Form validation
-    │   ├── hooks/             # Custom React hooks
-    │   │   ├── useAuth.ts     # Authentication hook
-    │   │   └── useEvents.ts   # Events hook
-    │   ├── App.tsx            # Main App component
-    │   ├── index.tsx          # React entry point
-    │   └── index.css          # Global styles
-    ├── package.json           # Dependencies
-    ├── tsconfig.json          # TypeScript config
-    └── tailwind.config.js     # Tailwind configuration
-\`\`\`
+    │   ├── pages/
+    │   │   ├── Home.tsx
+    │   │   ├── Events.tsx
+    │   │   ├── EventDetail.tsx
+    │   │   ├── Login.tsx
+    │   │   ├── Signup.tsx
+    │   │   ├── Dashboard.tsx
+    │   │   ├── Profile.tsx
+    │   │   └── CreateEvent.tsx
+    │   ├── services/
+    │   │   ├── api.ts
+    │   │   ├── authService.ts
+    │   │   ├── eventService.ts
+    │   │   └── userService.ts
+    │   ├── contexts/
+    │   │   ├── AuthContext.tsx
+    │   │   └── EventContext.tsx
+    │   ├── types/
+    │   │   ├── auth.ts
+    │   │   ├── event.ts
+    │   │   └── user.ts
+    │   ├── utils/
+    │   │   ├── constants.ts
+    │   │   ├── helpers.ts
+    │   │   └── validation.ts
+    │   ├── hooks/
+    │   │   ├── useAuth.ts
+    │   │   └── useEvents.ts
+    │   ├── App.tsx
+    │   ├── index.tsx
+    │   └── index.css
+    ├── package.json
+    ├── tsconfig.json
+    └── tailwind.config.js
+```
+
 
 ---
 
@@ -130,14 +131,14 @@ event-platform/
 
 ### 1️⃣ Clone Repository
 
-\`\`\`bash
+```bash
 git clone https://github.com/yourname/event-platform.git
 cd event-platform
-\`\`\`
+```
 
 ### 2️⃣ Backend Setup
 
-\`\`\`bash
+```bash
 cd backend
 
 # Create virtual environment
@@ -156,13 +157,13 @@ python test_connection.py
 
 # Start backend server
 uvicorn main:app --reload
-\`\`\`
+```
 
 **Backend runs on**: http://localhost:8000
 
 ### 3️⃣ Frontend Setup
 
-\`\`\`bash
+```bash
 cd frontend
 
 # Install dependencies
@@ -170,7 +171,7 @@ npm install
 
 # Start development server
 npm start
-\`\`\`
+```
 
 **Frontend runs on**: http://localhost:3000
 
@@ -178,37 +179,40 @@ npm start
 
 ## 💾 Database Setup
 
-\`\`\`sql
+```sql
 CREATE DATABASE event_platform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE USER 'event_user'@'localhost' IDENTIFIED BY 'event_password123';
 GRANT ALL PRIVILEGES ON event_platform.* TO 'event_user'@'localhost';
 FLUSH PRIVILEGES;
-\`\`\`
+```
 
 ---
 
 ## 🔐 Environment Configuration
 
 ### Backend `.env`
-\`\`\`env
+
+```env
 DATABASE_URL=mysql+pymysql://event_user:event_password123@localhost:3306/event_platform
 SECRET_KEY=your-super-secret-key-change-this
 ACCESS_TOKEN_EXPIRE_MINUTES=30
 CORS_ORIGINS=http://localhost:3000
-\`\`\`
+```
 
 ### Frontend `.env`
-\`\`\`env
+
+```env
 REACT_APP_API_URL=http://localhost:8000
 REACT_APP_APP_NAME=Event Platform
-\`\`\`
+```
 
 ---
 
 ## 📚 API Endpoints
 
 ### 🔑 Authentication
+
 | Method | Endpoint     | Description           |
 |--------|--------------|-----------------------|
 | POST   | /auth/signup | Register new user     |
@@ -216,6 +220,7 @@ REACT_APP_APP_NAME=Event Platform
 | GET    | /auth/me     | Get current user      |
 
 ### 📅 Events
+
 | Method | Endpoint        | Description                       |
 |--------|-----------------|-----------------------------------|
 | GET    | /events         | List events (search & filter)     |
@@ -226,6 +231,7 @@ REACT_APP_APP_NAME=Event Platform
 | GET    | /my-events      | User's created events             |
 
 ### 📝 Registrations
+
 | Method | Endpoint                  | Description        |
 |--------|---------------------------|--------------------|
 | POST   | /events/{id}/register     | Register for event |
@@ -238,8 +244,9 @@ REACT_APP_APP_NAME=Event Platform
 
 ### 🔧 Core Components
 
-#### `AuthContext.tsx`
-\`\`\`typescript
+#### AuthContext.tsx
+
+```typescript
 interface AuthContextType {
   user: User | null;
   login: (email: string, password: string) => Promise<void>;
@@ -247,24 +254,26 @@ interface AuthContextType {
   signup: (userData: SignupData) => Promise<void>;
   loading: boolean;
 }
-\`\`\`
+```
 
-#### `EventCard.tsx`
-\`\`\`typescript
+#### EventCard.tsx
+
+```typescript
 interface EventCardProps {
   event: Event;
   onRegister?: (eventId: number) => void;
   showActions?: boolean;
 }
-\`\`\`
+```
 
-#### `ProtectedRoute.tsx`
-\`\`\`typescript
+#### ProtectedRoute.tsx
+
+```typescript
 interface ProtectedRouteProps {
   children: React.ReactNode;
   redirectTo?: string;
 }
-\`\`\`
+```
 
 ### 📱 Pages Structure
 
@@ -280,47 +289,52 @@ interface ProtectedRouteProps {
 ## 🔄 Development Workflow
 
 ### 1️⃣ Start Development Servers
-\`\`\`bash
+
+```bash
 # Terminal 1 - Backend
 cd backend && uvicorn main:app --reload
 
 # Terminal 2 - Frontend  
 cd frontend && npm start
-\`\`\`
+```
 
 ### 2️⃣ API Documentation
+
 - Swagger UI: http://localhost:8000/docs
 - ReDoc: http://localhost:8000/redoc
 
 ### 3️⃣ Testing
-\`\`\`bash
+
+```bash
 # Backend tests
 cd backend && python -m pytest
 
 # Frontend tests
 cd frontend && npm test
-\`\`\`
+```
 
 ---
 
 ## 🚀 Deployment
 
 ### Backend (FastAPI)
-\`\`\`bash
+
+```bash
 # Using Gunicorn
 pip install gunicorn
 gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app
-\`\`\`
+```
 
 ### Frontend (React)
-\`\`\`bash
+
+```bash
 # Build for production
 npm run build
 
 # Serve static files
 npm install -g serve
 serve -s build
-\`\`\`
+```
 
 ---
 
@@ -338,18 +352,21 @@ serve -s build
 ## 🎯 Key Features Implementation
 
 ### Authentication Flow
+
 1. User signs up/logs in via frontend
 2. Backend validates credentials & returns JWT
 3. Frontend stores token & includes in API requests
 4. Protected routes check authentication status
 
 ### Event Management
+
 1. Users can create, edit, delete their events
 2. Public event browsing with search/filter
 3. Event registration with capacity limits
 4. Real-time registration updates
 
 ### User Experience
+
 1. Responsive design for all devices
 2. Loading states and error handling
 3. Form validation and feedback
@@ -363,9 +380,9 @@ serve -s build
 
 | Issue | Solution |
 |-------|----------|
-| CORS errors | Check `CORS_ORIGINS` in backend `.env` |
+| CORS errors | Check CORS_ORIGINS in backend .env |
 | Database connection | Verify MySQL is running & credentials |
-| Frontend API calls fail | Ensure `REACT_APP_API_URL` is correct |
+| Frontend API calls fail | Ensure REACT_APP_API_URL is correct |
 | Authentication issues | Check JWT token expiration |
 
 ### Development Tips
@@ -390,31 +407,10 @@ serve -s build
 
 ---
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 ## 👥 Team
 
 - **Backend**: FastAPI + MySQL
 - **Frontend**: React + TypeScript + Tailwind
 - **Database**: MySQL with SQLAlchemy ORM
 - **Authentication**: JWT tokens
-
----
-
-**Happy Coding! 🚀**
-\`\`\`
 
