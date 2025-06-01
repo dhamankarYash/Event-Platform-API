@@ -394,18 +394,51 @@ serve -s build
 
 ---
 
-## 📈 Future Enhancements
 
-- 🔔 Real-time notifications
-- 📧 Email confirmations
-- 🗓️ Calendar integration
-- 📊 Analytics dashboard
-- 🌐 Multi-language support
-- 📱 Mobile app (React Native)
-- 🎫 QR code tickets
-- 💳 Payment integration
+# 📦 Backend Requirements — Event Platform
+
+This document lists and explains the backend dependencies used in the **FastAPI-based** Event Platform.
 
 ---
+
+## 🧰 Core Dependencies
+
+| Package             | Version   | Purpose                              |
+|---------------------|-----------|--------------------------------------|
+| `fastapi`           | 0.104.1   | Web framework for building APIs      |
+| `uvicorn[standard]` | 0.24.0    | ASGI server to run FastAPI apps      |
+| `sqlalchemy`        | 2.0.23    | ORM for working with MySQL DB        |
+| `python-multipart`  | 0.0.6     | Handle file uploads                  |
+| `python-dotenv`     | 1.0.0     | Load environment variables from `.env` |
+
+---
+
+## 🔐 Authentication & Security
+
+| Package                         | Version   | Purpose                        |
+|----------------------------------|-----------|--------------------------------|
+| `python-jose[cryptography]`     | 3.3.0     | JWT encoding and decoding      |
+| `passlib[bcrypt]`               | 1.7.4     | Password hashing with bcrypt   |
+| `email-validator`               | 2.1.0     | Validate email addresses       |
+
+---
+
+## 📊 Data Validation
+
+| Package            | Version   | Purpose                        |
+|--------------------|-----------|--------------------------------|
+| `pydantic[email]`  | 2.5.0     | Schema validation and typing   |
+
+---
+
+## 🐬 MySQL Driver
+
+| Package   | Version   | Purpose                          |
+|-----------|-----------|----------------------------------|
+| `pymysql` | 1.1.0     | MySQL client used by SQLAlchemy  |
+
+---
+
 
 ## 👥 Team
 
