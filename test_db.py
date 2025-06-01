@@ -46,4 +46,8 @@ except Exception as e:
     print("1. Make sure MySQL is running")
     print("2. Check if database 'event_platform' exists")
     print("3. Verify user 'event_user' has correct permissions")
+
     print("4. Check .env file configuration")
+
+    print("4. Check .env file configuration")
+

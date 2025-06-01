@@ -45,4 +45,8 @@ class EventRegistration(Base):
     
     # Relationships
     user = relationship("User", back_populates="registrations")
+<<<<<<< HEAD
     event = relationship("Event", back_populates="registrations")
+=======
+    event = relationship("Event", back_populates="registrations")
+>>>>>>> 9e1cb9f19d0fb2fb4d5a3bac77e2af039c48947c

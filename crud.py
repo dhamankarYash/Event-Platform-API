@@ -191,4 +191,8 @@ def is_user_registered(db: Session, user_id: int, event_id: int) -> bool:
 
 def get_event_registration_count(db: Session, event_id: int) -> int:
     """Get the number of registrations for an event"""
+<<<<<<< HEAD
     return db.query(EventRegistration).filter(EventRegistration.event_id == event_id).count()
+=======
+    return db.query(EventRegistration).filter(EventRegistration.event_id == event_id).count()
+>>>>>>> 9e1cb9f19d0fb2fb4d5a3bac77e2af039c48947c

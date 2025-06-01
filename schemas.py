@@ -72,4 +72,8 @@ class EventRegistrationResponse(BaseModel):
         from_attributes = True
 
 class EventWithRegistrationStatus(EventResponse):
+
     is_registered: bool = False
+
+    is_registered: bool = False
+

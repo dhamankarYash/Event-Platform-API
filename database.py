@@ -51,4 +51,8 @@ def test_connection():
     except Exception as e:
         print(f"❌ Database connection failed: {e}")
         print("💡 Make sure MySQL is running and credentials are correct")
+
         return False
+
+        return False
+
