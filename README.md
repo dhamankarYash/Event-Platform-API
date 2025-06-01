@@ -1,268 +1,420 @@
-# 🎉 Event Platform API  
-### 🌍 *Discover & Register for Events — FastAPI + MySQL Edition*
+# 🎉 Event Platform - Full Stack Application
+### 🌍 *Discover & Register for Events — FastAPI Backend + React Frontend*
 
-A complete **FastAPI backend system** to power an event discovery and registration platform with secure authentication, advanced filtering, and MySQL integration.
+A complete **full-stack event discovery and registration platform** with secure authentication, advanced filtering, and modern UI/UX.
 
 ---
 
 ## 🚀 Features
 
-✅ **JWT Authentication**  
+✅ **JWT Authentication (Email + Password Login)**  
 ✅ **Event CRUD + Filtering**  
 ✅ **User Registrations (RSVP)**  
-✅ **MySQL + SQLAlchemy**  
-✅ **OpenAPI Docs**  
+✅ **MySQL + SQLAlchemy Backend**  
+✅ **React + TypeScript Frontend**  
+✅ **Responsive Design with Tailwind CSS**  
+✅ **OpenAPI Documentation**  
 ✅ **Pagination + Search**  
-✅ **Fully Validated APIs**
+✅ **Real-time Event Updates**  
+✅ **User Dashboard & Profile Management**
 
 ---
 
 ## 🛠 Tech Stack
 
-| Tool        | Purpose                        |
-|-------------|--------------------------------|
-| 🔥 FastAPI   | Web framework (high performance) |
-| 🐬 MySQL     | Relational database             |
-| 🛠 SQLAlchemy| ORM for DB models               |
-| 🔐 JWT       | Auth tokens                     |
-| 🔑 bcrypt    | Password hashing                |
-| 📘 Pydantic  | Data validation                 |
+### Backend
+| Tool         | Purpose                           |
+|--------------|------------------------------------|
+| 🔥 FastAPI    | Web framework (high performance)   |
+| 🐬 MySQL      | Relational database                |
+| 🛠 SQLAlchemy | ORM for DB models                  |
+| 🔐 JWT        | Auth tokens                        |
+| 🔑 bcrypt     | Password hashing                   |
+| 📘 Pydantic   | Data validation                    |
+
+### Frontend
+| Tool         | Purpose                           |
+|--------------|------------------------------------|
+| ⚛️ React      | UI library                         |
+| 📘 TypeScript | Type safety                        |
+| 🎨 Tailwind   | CSS framework                      |
+| 🔄 Axios      | HTTP client                        |
+| 🧭 React Router | Client-side routing              |
+| 🎯 Context API | State management                  |
 
 ---
 
 ## 📁 Project Structure
 
-```
-event-platform-api/
-├── main.py              # FastAPI routes
-├── models.py            # SQLAlchemy models
-├── schemas.py           # Pydantic schemas
-├── database.py          # MySQL DB config
-├── auth.py              # JWT authentication
-├── crud.py              # CRUD operations
-├── test_connection.py   # DB health check
-├── requirements.txt     # Python dependencies
-├── .env                 # Env vars
-├── .gitignore
-└── README.md
-```
+\`\`\`
+event-platform/
+├── backend/                    # FastAPI Backend
+│   ├── main.py                # FastAPI routes
+│   ├── models.py              # SQLAlchemy models
+│   ├── schemas.py             # Pydantic schemas
+│   ├── database.py            # MySQL DB config
+│   ├── auth.py                # JWT authentication
+│   ├── crud.py                # CRUD operations
+│   ├── test_connection.py     # DB health check
+│   ├── requirements.txt       # Python dependencies
+│   ├── .env                   # Environment variables
+│   └── README.md
+│
+└── frontend/                   # React Frontend
+    ├── public/
+    │   ├── index.html         # HTML template with Tailwind CDN
+    │   └── favicon.ico
+    ├── src/
+    │   ├── components/        # Reusable UI components
+    │   │   ├── common/        # Generic components
+    │   │   │   ├── Header.tsx
+    │   │   │   ├── Footer.tsx
+    │   │   │   ├── Loading.tsx
+    │   │   │   └── Modal.tsx
+    │   │   ├── auth/          # Authentication components
+    │   │   │   ├── LoginForm.tsx
+    │   │   │   ├── SignupForm.tsx
+    │   │   │   └── ProtectedRoute.tsx
+    │   │   └── events/        # Event-related components
+    │   │       ├── EventCard.tsx
+    │   │       ├── EventList.tsx
+    │   │       ├── EventForm.tsx
+    │   │       └── EventDetails.tsx
+    │   ├── pages/             # Page components
+    │   │   ├── Home.tsx       # Landing page
+    │   │   ├── Events.tsx     # Events listing
+    │   │   ├── EventDetail.tsx # Single event view
+    │   │   ├── Login.tsx      # Login page
+    │   │   ├── Signup.tsx     # Registration page
+    │   │   ├── Dashboard.tsx  # User dashboard
+    │   │   ├── Profile.tsx    # User profile
+    │   │   └── CreateEvent.tsx # Event creation
+    │   ├── services/          # API service layer
+    │   │   ├── api.ts         # Axios configuration
+    │   │   ├── authService.ts # Authentication APIs
+    │   │   ├── eventService.ts # Event APIs
+    │   │   └── userService.ts # User APIs
+    │   ├── contexts/          # React contexts
+    │   │   ├── AuthContext.tsx # Authentication state
+    │   │   └── EventContext.tsx # Event state
+    │   ├── types/             # TypeScript definitions
+    │   │   ├── auth.ts        # Auth-related types
+    │   │   ├── event.ts       # Event-related types
+    │   │   └── user.ts        # User-related types
+    │   ├── utils/             # Utility functions
+    │   │   ├── constants.ts   # App constants
+    │   │   ├── helpers.ts     # Helper functions
+    │   │   └── validation.ts  # Form validation
+    │   ├── hooks/             # Custom React hooks
+    │   │   ├── useAuth.ts     # Authentication hook
+    │   │   └── useEvents.ts   # Events hook
+    │   ├── App.tsx            # Main App component
+    │   ├── index.tsx          # React entry point
+    │   └── index.css          # Global styles
+    ├── package.json           # Dependencies
+    ├── tsconfig.json          # TypeScript config
+    └── tailwind.config.js     # Tailwind configuration
+\`\`\`
 
-# ⚡ Quick Start
+---
 
 ## ✅ Prerequisites
-- Python 3.8+
-- MySQL 5.7 or higher
-- `pip` installed
+
+- **Backend**: Python 3.8+, MySQL 5.7+
+- **Frontend**: Node.js 16+, npm/yarn
+- Git
 
 ---
 
-## 💾 MySQL Setup
+## 🚀 Quick Start
 
-```sql
-CREATE DATABASE event_platform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+### 1️⃣ Clone Repository
 
-CREATE USER 'event_user'@'localhost' IDENTIFIED BY 'event_password123';
-GRANT ALL PRIVILEGES ON event_platform.* TO 'event_user'@'localhost';
-FLUSH PRIVILEGES;
-```
+\`\`\`bash
+git clone https://github.com/yourname/event-platform.git
+cd event-platform
+\`\`\`
 
----
+### 2️⃣ Backend Setup
 
+\`\`\`bash
+cd backend
 
-## 💾 MySQL Setup
-
-```sql
-CREATE DATABASE event_platform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
-CREATE USER 'event_user'@'localhost' IDENTIFIED BY 'event_password123';
-GRANT ALL PRIVILEGES ON event_platform.* TO 'event_user'@'localhost';
-FLUSH PRIVILEGES;
-```
-
----
-
-## ⚙️ Project Setup
-
-```bash
-# Clone and navigate
-git clone https://github.com/yourname/event-platform-api.git
-cd event-platform-api
-
-# Setup virtual environment
+# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
-```
 
----
+# Configure environment
+cp .env.example .env
+# Edit .env with your MySQL credentials
 
-## 🔐 Configure `.env`
-
-```
-DATABASE_URL=mysql+pymysql://event_user:event_password123@localhost:3306/event_platform
-SECRET_KEY=change-this-key
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-```
-
----
-
-## 🧪 Test DB Connection
-
-```bash
+# Test database connection
 python test_connection.py
-```
+
+# Start backend server
+uvicorn main:app --reload
+\`\`\`
+
+**Backend runs on**: http://localhost:8000
+
+### 3️⃣ Frontend Setup
+
+\`\`\`bash
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+\`\`\`
+
+**Frontend runs on**: http://localhost:3000
 
 ---
 
-## ▶️ Run the API
+## 💾 Database Setup
 
-```bash
-python main.py
-```
+\`\`\`sql
+CREATE DATABASE event_platform CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-📍 Access the API:
-
-- Swagger UI: [http://localhost:8000/docs](http://localhost:8000/docs)  
-- ReDoc: [http://localhost:8000/redoc](http://localhost:8000/redoc)
+CREATE USER 'event_user'@'localhost' IDENTIFIED BY 'event_password123';
+GRANT ALL PRIVILEGES ON event_platform.* TO 'event_user'@'localhost';
+FLUSH PRIVILEGES;
+\`\`\`
 
 ---
 
-## 📚 API Reference
+## 🔐 Environment Configuration
 
-### 🔑 Auth
+### Backend `.env`
+\`\`\`env
+DATABASE_URL=mysql+pymysql://event_user:event_password123@localhost:3306/event_platform
+SECRET_KEY=your-super-secret-key-change-this
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+CORS_ORIGINS=http://localhost:3000
+\`\`\`
 
+### Frontend `.env`
+\`\`\`env
+REACT_APP_API_URL=http://localhost:8000
+REACT_APP_APP_NAME=Event Platform
+\`\`\`
+
+---
+
+## 📚 API Endpoints
+
+### 🔑 Authentication
 | Method | Endpoint     | Description           |
 |--------|--------------|-----------------------|
-| POST   | /auth/signup | Register a new user   |
+| POST   | /auth/signup | Register new user     |
 | POST   | /auth/login  | Login & get JWT       |
-| GET    | /auth/me     | Get current user info |
+| GET    | /auth/me     | Get current user      |
 
 ### 📅 Events
-
 | Method | Endpoint        | Description                       |
-|--------|------------------|-----------------------------------|
-| GET    | /events          | List events with search & filter |
-| GET    | /events/{id}     | View event details               |
-| POST   | /events          | Create an event (auth required)  |
-| PUT    | /events/{id}     | Update your event                |
-| DELETE | /events/{id}     | Delete your event                |
-| GET    | /my-events       | Your created events              |
+|--------|-----------------|-----------------------------------|
+| GET    | /events         | List events (search & filter)     |
+| GET    | /events/{id}    | Get event details                 |
+| POST   | /events         | Create event (auth required)      |
+| PUT    | /events/{id}    | Update event                      |
+| DELETE | /events/{id}    | Delete event                      |
+| GET    | /my-events      | User's created events             |
 
-### 📝 Registration
-
-| Method | Endpoint                  | Description         |
-|--------|---------------------------|---------------------|
-| POST   | /events/{id}/register     | RSVP for an event   |
-| DELETE | /events/{id}/register     | Cancel RSVP         |
-| GET    | /my-registrations         | See your registrations |
-
-### 🔧 Utilities
-
-| Method | Endpoint  | Description             |
-|--------|-----------|-------------------------|
-| GET    | /         | App info                |
-| GET    | /health   | DB & API health check   |
+### 📝 Registrations
+| Method | Endpoint                  | Description        |
+|--------|---------------------------|--------------------|
+| POST   | /events/{id}/register     | Register for event |
+| DELETE | /events/{id}/register     | Cancel registration|
+| GET    | /my-registrations         | User's registrations|
 
 ---
 
-## 🧪 Testing the API
+## 🎨 Frontend Components
 
-### 1️⃣ Signup
+### 🔧 Core Components
 
-```bash
-curl -X POST http://localhost:8000/auth/signup \
-     -H "Content-Type: application/json" \
-     -d '{"email":"john@example.com", "full_name":"John Doe", "password":"123456"}'
-```
+#### `AuthContext.tsx`
+\`\`\`typescript
+interface AuthContextType {
+  user: User | null;
+  login: (email: string, password: string) => Promise<void>;
+  logout: () => void;
+  signup: (userData: SignupData) => Promise<void>;
+  loading: boolean;
+}
+\`\`\`
 
-### 2️⃣ Login
+#### `EventCard.tsx`
+\`\`\`typescript
+interface EventCardProps {
+  event: Event;
+  onRegister?: (eventId: number) => void;
+  showActions?: boolean;
+}
+\`\`\`
 
-```bash
-curl -X POST http://localhost:8000/auth/login \
-     -H "Content-Type: application/json" \
-     -d '{"email":"john@example.com", "password":"123456"}'
-```
+#### `ProtectedRoute.tsx`
+\`\`\`typescript
+interface ProtectedRouteProps {
+  children: React.ReactNode;
+  redirectTo?: string;
+}
+\`\`\`
 
-### 3️⃣ Create an Event
+### 📱 Pages Structure
 
-```bash
-curl -X POST http://localhost:8000/events \
-     -H "Authorization: Bearer YOUR_TOKEN" \
-     -H "Content-Type: application/json" \
-     -d '{"name":"Tech Meetup", "description":"...", "location":"NYC", "date_time":"2024-06-15T18:00:00", "capacity":100}'
-```
-
----
-
-## 🗄️ Database Schema (MySQL)
-
-### 👤 `users`
-
-```sql
-id INT PRIMARY KEY AUTO_INCREMENT,
-email VARCHAR(255) UNIQUE NOT NULL,
-full_name VARCHAR(255),
-hashed_password VARCHAR(255),
-created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-```
-
-### 🎫 `events`
-
-```sql
-id INT PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(255),
-description TEXT,
-location VARCHAR(255),
-date_time DATETIME,
-capacity INT,
-created_by INT,
-FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE CASCADE
-```
-
-### ✅ `event_registrations`
-
-```sql
-id INT PRIMARY KEY AUTO_INCREMENT,
-user_id INT,
-event_id INT,
-registered_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-UNIQUE(user_id, event_id),
-FOREIGN KEY (user_id) REFERENCES users(id),
-FOREIGN KEY (event_id) REFERENCES events(id)
-```
+- **Home**: Landing page with featured events
+- **Events**: Searchable event listings with filters
+- **EventDetail**: Detailed event view with registration
+- **Dashboard**: User's events and registrations
+- **Profile**: User profile management
+- **Login/Signup**: Authentication forms
 
 ---
 
-## 🔒 Security Checklist (Production)
+## 🔄 Development Workflow
 
-- ✅ Use a strong `SECRET_KEY`
-- ✅ Use env variables for secrets
-- ✅ Enable HTTPS
-- ✅ Restrict CORS origins
-- ✅ Use production-grade MySQL
-- ✅ Add logging and monitoring
+### 1️⃣ Start Development Servers
+\`\`\`bash
+# Terminal 1 - Backend
+cd backend && uvicorn main:app --reload
+
+# Terminal 2 - Frontend  
+cd frontend && npm start
+\`\`\`
+
+### 2️⃣ API Documentation
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
+
+### 3️⃣ Testing
+\`\`\`bash
+# Backend tests
+cd backend && python -m pytest
+
+# Frontend tests
+cd frontend && npm test
+\`\`\`
 
 ---
 
 ## 🚀 Deployment
 
-### 🔧 Gunicorn (Production)
-
-```bash
+### Backend (FastAPI)
+\`\`\`bash
+# Using Gunicorn
 pip install gunicorn
-gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:8000
-```
+gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app
+\`\`\`
+
+### Frontend (React)
+\`\`\`bash
+# Build for production
+npm run build
+
+# Serve static files
+npm install -g serve
+serve -s build
+\`\`\`
+
+---
+
+## 🔒 Security Features
+
+- ✅ JWT token authentication
+- ✅ Password hashing with bcrypt
+- ✅ CORS protection
+- ✅ Input validation & sanitization
+- ✅ Protected routes
+- ✅ SQL injection prevention
+
+---
+
+## 🎯 Key Features Implementation
+
+### Authentication Flow
+1. User signs up/logs in via frontend
+2. Backend validates credentials & returns JWT
+3. Frontend stores token & includes in API requests
+4. Protected routes check authentication status
+
+### Event Management
+1. Users can create, edit, delete their events
+2. Public event browsing with search/filter
+3. Event registration with capacity limits
+4. Real-time registration updates
+
+### User Experience
+1. Responsive design for all devices
+2. Loading states and error handling
+3. Form validation and feedback
+4. Intuitive navigation and UI
 
 ---
 
 ## 🛠 Troubleshooting
 
-| Error                      | Solution                                  |
-|---------------------------|-------------------------------------------|
-| Can't connect to MySQL    | Ensure MySQL is running & port 3306 is open |
-| Access denied             | Check DB user & password in `.env`         |
-| Unknown database          | Run `CREATE DATABASE event_platform;`      |
-| Table creation fails      | Run `python test_connection.py` to debug   |
+### Common Issues
+
+| Issue | Solution |
+|-------|----------|
+| CORS errors | Check `CORS_ORIGINS` in backend `.env` |
+| Database connection | Verify MySQL is running & credentials |
+| Frontend API calls fail | Ensure `REACT_APP_API_URL` is correct |
+| Authentication issues | Check JWT token expiration |
+
+### Development Tips
+
+- Use browser dev tools for debugging API calls
+- Check backend logs for detailed error messages
+- Ensure both servers are running on correct ports
+- Clear browser cache if experiencing issues
+
+---
+
+## 📈 Future Enhancements
+
+- 🔔 Real-time notifications
+- 📧 Email confirmations
+- 🗓️ Calendar integration
+- 📊 Analytics dashboard
+- 🌐 Multi-language support
+- 📱 Mobile app (React Native)
+- 🎫 QR code tickets
+- 💳 Payment integration
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👥 Team
+
+- **Backend**: FastAPI + MySQL
+- **Frontend**: React + TypeScript + Tailwind
+- **Database**: MySQL with SQLAlchemy ORM
+- **Authentication**: JWT tokens
+
+---
+
+**Happy Coding! 🚀**
+\`\`\`
+
